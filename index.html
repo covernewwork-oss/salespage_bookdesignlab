@@ -60,16 +60,17 @@
         }
 
         /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--matte-black);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
+       header {
+       position: fixed;
+       top: 0;
+       width: 100%;
+       background: var(--matte-black); /* mantiene la barra scura */
+       border-bottom: 3px solid var(--mocha-light); /* riga di separazione beige uniforme */
+       box-shadow: none; /* elimina l’effetto che creava metà bianco */
+       z-index: 1000;
+       padding: 1rem 0;
+}
+
 
         .header-container {
             max-width: 1200px;
