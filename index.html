@@ -1069,6 +1069,23 @@
                 max-width: calc(100% - 40px);
             }
         }
+       /* === OVERRIDE COLORE TESTO PACCHETTI === */
+.package-card,
+.package-card h3,
+.package-card p,
+.package-card li,
+.package-card strong,
+.package-card span,
+.package-card .package-price-note {
+    color: #000000 !important;
+}
+
+/* Mantiene dorati i check e i badge */
+.package-features li::before,
+.recommended-badge {
+    color: var(--primary-gold) !important;
+}
+ 
     </style>
 </head>
 <body>
