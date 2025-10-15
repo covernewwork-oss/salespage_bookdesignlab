@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Design Lab - Pacchetti Editore Self Publishing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            .whatsapp-float {
+                bottom: 80px;
+            }
+        }
+
+        :root {
+            --primary-gold: #FFD700;
+            --gold-light: #FFF4B3;
+            --gold-dark: #E6BE00;
+            --gold-shine: #FFEB99;
+            --light-yellow: #F9E79F;
+            --matte-black: #2C2C2C;
+            --dark-black: #1A1A1A;
+            --mocha: #A67B5B;
+            --mocha-light: #D4C4B0;
+            --soft-green: #6B8E23;
+            --white: #FFFFFF;
+            --warm-beige: #F5EFE7;
+            --light-gray: #F8F9FA;
+            --text-gray: #566573;
+            --slate-gray: #708090;
+        }
+
+        /* Gradient dorato luccicante brillante */
+        .gold-shimmer {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--primary-gold) 25%, var(--gold-shine) 50%, var(--primary-gold) 75%, var(--gold-dark) 100%);
+            background-size: 200% 200%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--matte-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--warm-beige);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--matte-black);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--primary-gold) 25%, var(--gold-shine) 50%, var(--primary-gold) 75%, var(--gold-dark) 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            animation: shimmer 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--mocha-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-gold);
+            transform: translateY(-2px);
+        }
+
+        .cta-header {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--primary-gold) 25%, var(--gold-shine) 50%, var(--primary-gold) 75%, var(--gold-dark) 100%);
+            background-size: 200% 200%;
+            color: var(--matte-black);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            animation: shimmer 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.2));
+        }
+
+        .cta-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+        }
+
+        /* Hero */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--matte-black) 0%, var(--dark-black) 100%);
+            color: var(--warm-beige);
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            color: var(--warm-beige);
+        }
+
+        .hero-highlight {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--primary-gold) 25%, var(--gold-shine) 50%, var(--primary-gold) 75%, var(--gold-dark) 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-top: 0.5rem;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            font-weight: 300;
+            color: var(--mocha-light);
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--primary-gold) 25%, var(--gold-shine) 50%, var(--primary-gold) 75%, var(--gold-dark) 100%);
+            background-size: 200% 200%;
+            color: var(--matte-black);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            animation: shimmer 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+        }
+
+        .trust-badge {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--warm-beige);
+        }
+
+        /* Section */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1A1A1A;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #2C2C2C;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Why It Works */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(44, 44, 44, 0.1);
+            transition: all 0.3s;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.25);
+            border-color: var(--primary-gold);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--primary-gold) 25%, var(--gold-shine) 50%, var(--primary-gold) 75%, var(--gold-dark) 100%);
+            background-size: 200% 200%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            animation: shimmer 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+        }
+
+        .value-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #1A1A1A;
+        }
+
+        .value-card p {
+            color: #2C2C2C;
+            line-height: 1.7;
+        }
+
+        /* Packages - STRUTTURA SEMPLIFICATA */
+        .packages {
+            background: var(--light-gray);
+        }
+
+        .packages-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .package-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(44, 44, 44, 0.12);
+            position: relative;
+            transition: all 0.3s;
+            border: 3px solid;
+            border-image: linear-gradient(135deg, var(--gold-dark), var(--primary-gold), var(--gold-light), var(--primary-gold), var(--gold-dark)) 1;
+        }
+
+        .package-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.25);
+        }
+
+        .package-recommended {
+            border: 3px solid var(--light-yellow);
+            box-shadow: 0 10px 40px rgba(249, 231, 159, 0.25);
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--primary-gold) 25%, var(--gold-shine) 50%, var(--primary-gold) 75%, var(--gold-dark) 100%);
+            background-size: 200% 200%;
+            color: var(--matte-black);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            animation: shimmer 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+        }
+
+        .package-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--warm-beige);
+        }
+
+        .package-price {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--primary-gold) 25%, var(--gold-shine) 50%, var(--primary-gold) 75%, var(--gold-dark) 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            animation: shimmer 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+        }
+
+        .package-price-note {
+            font-size: 0.9rem;
+            color: var(--mocha-light);
+            margin-bottom: 2rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(245, 239, 231, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            color: var(--mocha-light);
+        }
+
+        .package-features li::before {
+            content: '✓';
+            color: var(--primary-gold);
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .package-extra {
+            background: linear-gradient(135deg, rgba(249, 231, 159, 0.2), rgba(249, 231, 159, 0.1));
+            border-left: 4px solid var(--light-yellow);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 12px;
+        }
+
+        .package-extra strong {
+            color: #1A1A1A;
+            font-size: 1rem;
+        }
+
+        .package-cta {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--primary-gold) 25%, var(--gold-shine) 50%, var(--primary-gold) 75%, var(--gold-dark) 100%);
+            background-size: 200% 200%;
+            color: var(--matte-black);
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            animation: shimmer 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.2));
+        }
+
+        .package-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+        }
+
+        .package-recommended .package-cta {
+            animation-duration: 2.5s;
+        }
+
+        .payment-trust {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #2C2C2C;
+            margin-top: 2rem;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        section {
+            padding: 6rem 2rem;
+            background: var(--warm-beige);
+        }
+
+        .packages {
+            background: var(--warm-beige);
+        }
+
+        .process {
+            background: var(--warm-beige);
+        }
+
+        #testimonials {
+            background: var(--warm-beige);
+        }
+
+        #faq {
+            background: var(--warm-beige);
+        }
+
+        .testimonial-card {
+            background: rgba(245, 239, 231, 0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(255, 215, 0, 0.08);
+            position: relative;
+            border: 1px solid rgba(245, 239, 231, 0.1);
+        }
+
+        .testimonial-quote {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--gold-dark), var(--primary-gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--mocha-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--primary-gold) 50%, var(--gold-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--matte-black);
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            color: #1A1A1A;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: #2C2C2C;
+        }
+
+        .trust-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-logo {
+            font-weight: 600;
+            color: #2C2C2C;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(14, 38, 73, 0.05);
+        }
+
+        /* Lead Magnet */
+        .lead-magnet {
+            background: linear-gradient(135deg, var(--matte-black) 0%, var(--dark-black) 100%);
+            color: var(--mocha-light);
+            text-align: center;
+        }
+
+        .lead-magnet h2 {
+            color: var(--mocha-light);
+        }
+
+        .lead-magnet-subtitle {
+            color: var(--mocha-light);
+        }
+
+        .magnet-cta {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--primary-gold) 25%, var(--gold-shine) 50%, var(--primary-gold) 75%, var(--gold-dark) 100%);
+            background-size: 200% 200%;
+            color: var(--matte-black);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            animation: shimmer 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+        }
+
+        .magnet-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-gray);
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--navy);
+        }
+
+        .modal h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--matte-black);
+        }
+
+        .modal p {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .modal input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .modal input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .modal button[type="submit"] {
+            width: 100%;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1.2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal button[type="submit"]:hover {
+            background: #C09F30;
+        }
+
+        /* Process */
+        .process {
+            background: var(--light-gray);
+        }
+
+        .process-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--primary-gold) 25%, var(--gold-shine) 50%, var(--primary-gold) 75%, var(--gold-dark) 100%);
+            background-size: 200% 200%;
+            color: var(--matte-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            animation: shimmer 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+        }
+
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #1A1A1A;
+        }
+
+        .step-content p {
+            color: #2C2C2C;
+            line-height: 1.7;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 15px rgba(14, 38, 73, 0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #1A1A1A;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(245, 239, 231, 0.5);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: #1A1A1A;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 2rem 1.5rem;
+            color: #2C2C2C;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--matte-black), var(--dark-black));
+            color: var(--mocha-light);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--primary-gold) 25%, var(--gold-shine) 50%, var(--primary-gold) 75%, var(--gold-dark) 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            animation: shimmer 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+        }
+
+        .footer-brand p {
+            opacity: 0.9;
+            line-height: 1.7;
+            color: #1A1A1A;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1rem;
+            color: var(--light-yellow);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #1A1A1A;
+            text-decoration: none;
+            opacity: 0.9;
+            display: block;
+            padding: 0.5rem 0;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary-gold);
+            padding-left: 5px;
+        }
+
+        .footer-links li {
+            color: #1A1A1A;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(26, 26, 26, 0.3);
+            opacity: 0.8;
+            font-size: 0.9rem;
+            color: #1A1A1A;
+        }, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Upsell Banner */
+        .upsell-banner {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+            max-width: 350px;
+            z-index: 1500;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .upsell-banner.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .upsell-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-gray);
+        }
+
+        .upsell-banner h4 {
+            color: var(--matte-black);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .upsell-banner p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .upsell-cta {
+            display: block;
+            background: var(--primary-gold);
+            color: var(--matte-black);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .upsell-cta:hover {
+            background: var(--gold-light);
+        }
+
+        /* WhatsApp Buttons */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            z-index: 1500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-inline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #25D366;
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-inline:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            background: #20BA5A;
+        }
+
+        .whatsapp-inline-icon {
+            font-size: 1.3rem;
+        }
+
+        .whatsapp-section {
+            background: linear-gradient(135deg, #25D366, #20BA5A);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            border-radius: 20px;
+        }
+
+        .whatsapp-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .whatsapp-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .whatsapp-big-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--white);
+            color: #25D366;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-big-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-big-icon {
+            font-size: 2rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--mocha-light);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: var(--matte-black);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                transition: left 0.3s;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .hero {
+                padding: 5rem 1.5rem 4rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .process-step {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .upsell-banner {
+                left: 20px;
+                right: 20px;
+                max-width: calc(100% - 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">Book Design Lab</div>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+            <nav>
+                <ul id="mainMenu">
+                    <li><a href="#packages">Pacchetti</a></li>
+                    <li><a href="#why">Perché Noi</a></li>
+                    <li><a href="#testimonials">Testimonianze</a></li>
+                    <li><a href="#faq">Domande</a></li>
+                    <li><a href="#contact">Contatti</a></li>
+                    <li><a href="#packages" class="cta-header">Acquista ora</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Dal Nulla al Best Seller:<br><span class="hero-highlight">Ci Pensiamo Noi</span></h1>
+            <p>Troviamo la keyword che converte, scriviamo il manoscritto, creiamo copertine e contenuti A+. Tu ricevi tutto pronto per pubblicare su Amazon KDP in soli 2 giorni.</p>
+            <a href="#packages" class="cta-primary">Inizia Ora il Tuo Libro</a>
+            <a href="https://wa.me/393331234567?text=Ciao%2C%20vorrei%20informazioni%20sui%20pacchetti%20Editore" target="_blank" class="whatsapp-inline">
+                <span class="whatsapp-inline-icon">💬</span>
+                Chatta su WhatsApp
+            </a>
+            <div class="trust-badge">
+                🔒 Pagamento sicuro | ⚡ Tutto pronto in 2 GIORNI | 🎯 Keyword che convertono
+            </div>
+        </div>
+    </section>
+
+    <!-- Why It Works -->
+    <section id="why">
+        <div class="container">
+            <h2 class="section-title">Cosa Ottieni (Tutto Fatto da Noi con la Tua Supervisione)</h2>
+            <p class="section-subtitle">Non devi fare nulla. Troviamo la keyword perfetta, scriviamo il libro, creiamo il design. Tu approvi e ricevi tutto in 2 giorni.</p>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>Keyword Research Avanzata</h3>
+                    <p>Analizziamo il mercato Amazon e troviamo keyword ad alto volume e bassa concorrenza. Identifichiamo la nicchia perfetta che genera vendite dal giorno 1.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">📚</div>
+                    <h3>Manoscritto Scritto da Zero</h3>
+                    <p>Il nostro team di writer professionisti scrive l'intero libro basandosi sulla keyword e la nicchia identificata. Contenuti di qualità, pronti per Amazon.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎨</div>
+                    <h3>Tutte le Copertine (Kindle, Paperback, Hardcover)</h3>
+                    <p>Design professionali ottimizzati per Amazon. Copertine che catturano l'attenzione e aumentano il CTR del 300%. Formati pronti per il caricamento.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>Copy + A+ Content Professionale</h3>
+                    <p>Descrizione ottimizzata per l'algoritmo A9, contenuti A+ che convertono, bullet point strategici. Tutto scritto per vendere. Carica e inizia a guadagnare.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages -->
+    <section id="packages" class="packages">
+        <div class="packages-container">
+            <h2 class="section-title">Pacchetti Completi: Tutto in 2 Giorni</h2>
+            <p class="section-subtitle">Keyword research + Manoscritto + Copertine + Copy A+. Non devi fare nulla, solo pubblicare e guadagnare.</p>
+            
+            <!-- WhatsApp Section -->
+            <div class="whatsapp-section">
+                <h3>💬 Hai Domande? Parliamone su WhatsApp!</h3>
+                <p>Il nostro team è pronto a rispondere a tutte le tue domande e aiutarti a scegliere il pacchetto perfetto</p>
+                <a href="https://wa.me/393331234567?text=Ciao%2C%20ho%20delle%20domande%20sui%20pacchetti" target="_blank" class="whatsapp-big-button">
+                    <span class="whatsapp-big-icon">📱</span>
+                    Contattaci su WhatsApp
+                </a>
+            </div>
+            
+            <div class="two-columns">
+                <!-- Editore -->
+                <div class="package-card">
+                    <h3 class="package-name">Editore</h3>
+                    <div class="package-price">€399</div>
+                    <p class="package-price-note">Tutto pronto in 2 giorni</p>
+                    <ul class="package-features">
+                        <li><strong>Keyword research professionale</strong> (nicchia ad alta conversione)</li>
+                        <li><strong>Manoscritto completo scritto da zero</strong></li>
+                        <li><strong>Copertina Kindle</strong> ottimizzata per CTR</li>
+                        <li><strong>Copertina Paperback</strong> con spine perfetto</li>
+                        <li><strong>Formattazione file KDP</strong> pronta al caricamento</li>
+                        <li><strong>Copy descrizione Amazon</strong> ottimizzato A9</li>
+                        <li>Revisioni illimitate fino a soddisfazione</li>
+                        <li><strong>Tu supervisioni e approvi ogni fase</strong></li>
+                        <li>Supporto via email per 30 giorni</li>
+                    </ul>
+                    <a href="https://checkout.stripe.com/pay/EDITORE_PLACEHOLDER" target="_blank" class="package-cta" onclick="showUpsell(event)">Acquista Editore</a>
+                </div>
+
+                <!-- Editore Plus -->
+                <div class="package-card package-recommended">
+                    <span class="recommended-badge">Più Venduto</span>
+                    <h3 class="package-name">Editore Plus</h3>
+                    <div class="package-price">€499</div>
+                    <p class="package-price-note">Tutto pronto in 2 giorni | Massime conversioni</p>
+                    <ul class="package-features">
+                        <li><strong>Keyword research avanzata</strong> con analisi concorrenza</li>
+                        <li><strong>Manoscritto completo scritto da zero</strong></li>
+                        <li><strong>Copertina Kindle</strong> ottimizzata per CTR</li>
+                        <li><strong>Copertina Paperback</strong> con spine perfetto</li>
+                        <li><strong>Formattazione file KDP</strong> pronta al caricamento</li>
+                        <li><strong>Copy descrizione Amazon</strong> ottimizzato A9</li>
+                        <li>Revisioni illimitate fino a soddisfazione</li>
+                        <li><strong>Tu supervisioni e approvi ogni fase</strong></li>
+                        <li>Supporto via email per 30 giorni</li>
+                    </ul>
+                    <div class="package-extra">
+                        <strong>✨ Extra Inclusi nel Plus:</strong>
+                    </div>
+                    <ul class="package-features">
+                        <li><strong>Copertina Hardcover (cartonato)</strong> per edizione premium</li>
+                        <li><strong>Contenuti A+ Premium</strong> che aumentano vendite del 20%</li>
+                        <li><strong>Copy pubblicitario</strong> per ads e promozioni</li>
+                        <li><strong>Bullet points strategici</strong> ottimizzati per conversione</li>
+                        <li><strong>Mockup 3D professionali</strong> per social media</li>
+                        <li><strong>Supporto prioritario 60 giorni</strong> con risposta in 24h</li>
+                        <li><strong>Consulenza strategica</strong> su prezzo e categoria ottimali</li>
+                    </ul>
+                    <a href="https://checkout.stripe.com/pay/EDITORE_PLUS_PLACEHOLDER" target="_blank" class="package-cta">Acquista Editore Plus</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://wa.me/393331234567?text=Ciao%2C%20vorrei%20info%20sui%20pacchetti" target="_blank" class="whatsapp-inline" style="display: inline-flex;">
+                    <span class="whatsapp-inline-icon">💬</span>
+                    Chiedi Info su WhatsApp
+                </a>
+            </div>
+            
+            <div class="payment-trust">
+                ⚡ Consegna in 2 GIORNI | 🎯 Keyword + Manoscritto + Cover + Copy | 🔒 Pagamento sicuro | 💯 Soddisfatto o revisionato
+            </div>
+        </div>
+    </section>
