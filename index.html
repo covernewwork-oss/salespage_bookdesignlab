@@ -78,9 +78,17 @@ header{
      - il primo (in alto) riempie tutto meno 1px
      - il secondo (in basso) è proprio la riga da 1px */
   background:
-    linear-gradient(var(--matte-black), var(--matte-black)) top / 100% calc(100% - 1px) no-repeat,
-    linear-gradient(var(--warm-beige), var(--warm-beige)) bottom / 100% 1px no-repeat;
+    header{
+  /* ...lascia invariati position/top/width/padding ecc... */
+
+  /* usa uno sfondo pieno */
+  background-color: var(--matte-black) !important;
+  background-image: none !important;
+
+  /* riga beige da 1px sempre nitida */
+  box-shadow: inset 0 -1px 0 var(--warm-beige) !important;
 }
+
 
 
 
