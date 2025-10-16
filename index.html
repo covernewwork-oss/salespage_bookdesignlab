@@ -60,37 +60,20 @@
         }
 
         /* Header */
-       /* Header con riga beige di 1px disegnata nello sfondo (niente ::after) */
-header{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--matte-black);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
 
-  /* colori e stile */
-  backdrop-filter: blur(10px);
-  padding: 1rem 0;
-  border: 0;
-  box-shadow: none;
-
-  /* DUE layer di background:
-     - il primo (in alto) riempie tutto meno 1px
-     - il secondo (in basso) è proprio la riga da 1px */
-  background:
-    header{
-  /* ...lascia invariati position/top/width/padding ecc... */
-
-  /* usa uno sfondo pieno */
-  background-color: var(--matte-black) !important;
-  background-image: none !important;
-
-  /* riga beige da 1px sempre nitida */
-  box-shadow: inset 0 -1px 0 var(--warm-beige) !important;
+            /* 🔽 linea beige chiaro sotto l’header */
+            border-bottom: 3px solid var(--warm-beige);
+            box-shadow: none;
 }
-
-
-
 
 
         .header-container {
