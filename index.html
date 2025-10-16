@@ -60,20 +60,33 @@
         }
 
         /* Header */
-        /* Header con linea beige sottile e stabile */
-        header {
-          position: fixed;
-          top: 0;
-          width: 100%;
-          background: var(--matte-black);
-          backdrop-filter: blur(10px);
-          z-index: 1000;
-          padding: 1rem 0;
-
-          /* ✅ linea beige sempre sottile e coerente */
-          border-bottom: 1px solid var(--warm-beige) !important;
-          box-shadow: none !important;
+       /* Header senza bordo, linea disegnata con ::after */
+       header{
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         background: var(--matte-black);
+         backdrop-filter: blur(10px);
+         z-index: 1000;
+         padding: 1rem 0;
+         border: 0;
+         box-shadow: none;
 }
+
+      /* Linea beige 1px sempre stabile */
+      header::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: var(--warm-beige);
+        pointer-events: none;
+        transform: translateZ(0); /* evita artefatti su alcuni browser */
+}
+
 
 
 
