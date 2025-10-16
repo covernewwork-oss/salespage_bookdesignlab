@@ -60,6 +60,7 @@
         }
 
         /* Header */
+        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -68,8 +69,12 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
+
+            /* 🔽 linea beige chiaro sotto l’header */
+            border-bottom: 3px solid var(--warm-beige);
+            box-shadow: none;
+}
+
 
         .header-container {
             max-width: 1200px;
