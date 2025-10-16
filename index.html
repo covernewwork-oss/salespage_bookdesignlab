@@ -60,31 +60,26 @@
         }
 
         /* Header */
-       /* Header senza bordo, linea disegnata con ::after */
-       header{
-         position: fixed;
-         top: 0;
-         left: 0;
-         width: 100%;
-         background: var(--matte-black);
-         backdrop-filter: blur(10px);
-         z-index: 1000;
-         padding: 1rem 0;
-         border: 0;
-         box-shadow: none;
-}
+       /* Header con riga beige di 1px disegnata nello sfondo (niente ::after) */
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 
-      /* Linea beige 1px sempre stabile */
-      header::after{
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 1px;
-        background: var(--warm-beige);
-        pointer-events: none;
-        transform: translateZ(0); /* evita artefatti su alcuni browser */
+  /* colori e stile */
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  border: 0;
+  box-shadow: none;
+
+  /* DUE layer di background:
+     - il primo (in alto) riempie tutto meno 1px
+     - il secondo (in basso) è proprio la riga da 1px */
+  background:
+    linear-gradient(var(--matte-black), var(--matte-black)) top / 100% calc(100% - 1px) no-repeat,
+    linear-gradient(var(--warm-beige), var(--warm-beige)) bottom / 100% 1px no-repeat;
 }
 
 
